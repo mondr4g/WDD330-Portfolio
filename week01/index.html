@@ -23,6 +23,7 @@
             <section class="reading">
                 <h3>Syllabus</h3>
                 <h4>Course Objectives</h4>
+                <br>
                 <p>Demonstrate knowledge and skills to create dynamic web sites using: </p>
                 <ul>
                     <li>Ptinciples introduced in Web Frontend Development.</li>
@@ -35,6 +36,7 @@
                 </ul>
                 <br>
                 <h4>Grading</h4>
+                <br>
                 <p>The grade is based on the demonstrated
                     competency of each course objective. Each assessment is tied and scored directly to one or more
                     course objectives.</p>
@@ -42,6 +44,42 @@
                     mastery. Passing course objectives, not the gross percentage of the class, determines the final
                     course grade. Each objective is graded Pass / Fail. To pass an objective we must earn at least 80%
                     of the points allocated to it.</p>
+            </section>
+            <section class="reading">
+                <h3>Local Storage</h3>
+                <p>LocalStorage is a property of JS that we could use to store or save data as key-value on the web
+                    browser.
+                    This data do not expire, that means it is not going to be delated, even if we close the web browser.
+                    If we wanted to use this property to store a value, we need to do something like the code bellow:
+                </p>
+                <p>function saveData() { <br>
+                    let value = document.getElementById("value").value;<br>
+                    localStorage.setItem("value",value);<br>
+                    }
+                </p>
+                <br>
+                <h4>Exercise</h4>
+                <br>
+                <h5>Story Editor</h5>
+                Story Name:<input id=name_input></input>
+                <section>
+                    <button onclick="loadStory()">Find and Edit It</button>
+                    <button onclick="saveStory()">Save It</button>
+                    <button onclick="dsiplayStory()">Display It</button>
+                </section>
+                <textarea id="story_editor" placeholder="Write a totally awesome story here." style="width: 800px; height: 250px; background-color: lightyellow;"></textarea>
+                <section id="story_display"></section> 
+            </section>
+            <section class="reading">
+                <h3>Master Mobile UX</h3>
+                <ul>
+                    <li>Know your users better than them self.</li>
+                    <li>Reachability, simple.</li>
+                    <li>Give a fluid menu to navigate trough the website.</li>
+                    <li>Forms without float labels, resize inputs.</li>
+                    <li>avoid pop up advertising.</li>
+                    <li>Small and simple Ads.</li>
+                </ul>
             </section>
         </div>
     </main>
@@ -68,6 +106,7 @@
     <a href="https://wa.me/524491904783/?text=Hola" target="_blank" id="contact-whats"><i
             class="fa fa-whatsapp"></i></a>
 </body>
+<script src="../js/w01.js"></script>
 <script src="https://kit.fontawesome.com/20512df472.js" crossorigin="anonymous"></script>
 
 </html>
