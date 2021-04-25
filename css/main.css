@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@300&display=swap');
+
+:root {
+    --link-color: black;
+    --secondaary-color: #e63946;
+    --font-titles: 'Roboto', sans-serif;
+    --font-text: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    height: 100%;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+main {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 80%;
+    min-height: 50vh;
+}
+
+#main-content {
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+footer {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--font-titles);
+}
+
+.title {
+    display: flex;
+    width: 100%;
+    padding-top: 2em;
+    justify-content: space-between;
+    color: var(--link-color);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #ff006e;
+}
+
+.course a {
+    color: var(--secondaary-color);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.reading {
+    margin-top: 50px;
+}
+
+.reading h3 {
+    margin-bottom: 20px;
+    color: #ff006e;
+}
+
+.container i {
+    color: var(--secondaary-color);
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.container p {
+    font-size: 1.2rem;
+}
+
+.container h2 {
+    margin-bottom: 10px;
+}
+
+.brand-logo,
+.logo i {
+    color: var(--secondaary-color);
+    font-size: 1.5rem;
+}
+
+.contact p {
+    margin-bottom: 10px;
+}
+
+.logo p {
+    margin-top: 10%;
+}
+
+.social-media a {
+    margin-right: 20px;
+}
+
+#contact-whats {
+    position: fixed;
+    font-size: 2.5rem;
+    border: none;
+    bottom: 20%;
+    right: 5%;
+}
+
+#contact-whats i {
+    color: white;
+    background-color: #55a630;
+    padding: 5px;
+    border-radius: 100%;
+}
+
+@media (max-width: 650px) {
+    .container {
+        display: inline;
+    }
+
+    .container div {
+        margin-top: 20px;
+        margin-left: 2%;
+    }
+}
