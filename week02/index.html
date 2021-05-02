@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD330 | Week 02</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <h2 class="course"><a href="../index.html">WDD330</a></h2>
+            <h2>Eduardo Mena</h2>
+        </div>
+    </header>
+
+    <main>
+        <div id="main-content">
+            <h2>Notes</h2>
+            <section class="reading">
+                <h3>Programming Basics</h3>
+                <h4>Reserved Words</h4>
+                <br>
+                <p>The following words arereservedfor use by the JavaScript language and cannot be used to name
+                    variables (or function parameters and object properties that appear in later chapters): </p>
+                <br>
+                <p>
+                    abstract, await, boolean, break, byte, case, catch, char, class, const, continue, debugger, default,
+                    delete, do, double, else, enum, export, extends, false, final, finally, float, for, function, goto,
+                    if, implements, import, in instanceof, int, interface, let, long, native, new, null, package,
+                    private, protected, public, return, short, static, super, switch, synchronized, this, throw, throws,
+                    transient, true, try, typeof, var, volatile, void, while, with, yield
+                </p>
+                <br>
+
+                <h4>Primitive Data Types</h4>
+                <br>
+                <p>JavaScript has seven different data types. Six of them areprimitive data typesand are listed below:
+                </p>
+                <ul>
+                    <li>String</li>
+                    <li>Symbol (The symbol primitive data type was only introduced in ES6.)</li>
+                    <li>Number</li>
+                    <li>Boolean</li>
+                    <li>Undefined</li>
+                    <li>Null</li>
+                </ul>
+                <br>
+
+                <h4>Naming Constants & Variables</h4>
+                <p>When naming constants and variables, you should try to give them sensible names that describe what
+                    the variable represents; hence, answer is a better variable name than x. Constant and variable names
+                    can start with any upper or lower-case letter, an underscore, _ , or dollar character, $ . They can
+                    also contain numbers, but cannot start with them. Here are some valid examples:</p>
+                <ul>
+                    <li>$name</li>
+                    <li>_answer</li>
+                    <li>firstName</li>
+                    <li>last_name</li>
+                    <li>address_linel</li>
+                </ul>
+                <br>
+
+                <h3>Arithmetic Operations</h3>
+                <p>All the usual arithmetic operations can be carried out in JavaScript.</p>
+                <ul>
+                    <li>Addition: 5 + 4.3</li>
+                    <li>Substraction: 6 - 11</li>
+                    <li>Multiplication: 6 * 7</li>
+                    <li>Division: 3/7</li>
+                    <li>Exponentiation: 2**3</li>
+                    <li>Remainder of Division: 23%6</li>
+                </ul>
+                <br>
+
+                <h3>NaN</h3>
+                <p>NaN is an error value that is short for "Not a Number". It is used when an operation is attempted and
+                    the result isn’t numerical, like if you try to multiply a string by a number.</p>
+            </section>
+            <section class="reading">
+                <h3>Local Storage</h3>
+                <p>LocalStorage is a property of JS that we could use to store or save data as key-value on the web
+                    browser.
+                    This data do not expire, that means it is not going to be delated, even if we close the web browser.
+                    If we wanted to use this property to store a value, we need to do something like the code bellow:
+                </p>
+                <p>function saveData() { <br>
+                    let value = document.getElementById("value").value;<br>
+                    localStorage.setItem("value",value);<br>
+                    }
+                </p>
+                <br>
+                <h4>Exercise</h4>
+                <br>
+                <h5>Story Editor</h5>
+                Story Name:<input id=name_input></input>
+                <section>
+                    <button onclick="loadStory()">Find and Edit It</button>
+                    <button onclick="saveStory()">Save It</button>
+                    <button onclick="dsiplayStory()">Display It</button>
+                </section>
+                <textarea id="story_editor" placeholder="Write a totally awesome story here."
+                    style="width: 800px; height: 250px; background-color: lightyellow;"></textarea>
+                <section id="story_display"></section>
+            </section>
+            <section class="reading">
+                <h3>Master Mobile UX</h3>
+                <ul>
+                    <li>Know your users better than them self.</li>
+                    <li>Reachability, simple.</li>
+                    <li>Give a fluid menu to navigate trough the website.</li>
+                    <li>Forms without float labels, resize inputs.</li>
+                    <li>avoid pop up advertising.</li>
+                    <li>Small and simple Ads.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <a href="#" class="brand-logo"><i class="fas fa-dragon"></i> Drackode</a>
+                <p>&copy; 2021 | Drackode | Aguascalientes, Mexico</p>
+            </div>
+            <div class="contact">
+                <h2>Contact</h2>
+                <p><i class="fas fa-envelope"></i> dr4ckode@gmail.com </p>
+                <p><i class="fa fa-phone"></i> + 52 4491904783 </p>
+            </div>
+            <div class="social-media">
+                <h2>Social Media</h2>
+                <a href="https://www.facebook.com/jose.e.mena.14/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/jmena.4/?hl=es-la" target="_blank"><i
+                        class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <a href="https://wa.me/524491904783/?text=Hola" target="_blank" id="contact-whats"><i
+            class="fa fa-whatsapp"></i></a>
+</body>
+<script src="../js/w01.js"></script>
+<script src="https://kit.fontawesome.com/20512df472.js" crossorigin="anonymous"></script>
+
+</html>

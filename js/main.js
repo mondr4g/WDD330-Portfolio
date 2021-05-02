@@ -1,9 +1,7 @@
 window.onload = function() {
     const links = [
-        {
-            label: "Week1 notes/exercises",
-            url: "week01/index.html" 
-        }
+        { label: "Week1 notes/exercises", url: "week01/index.html" },
+        { label: "Week2 notes/exercises", url: "week02/index.html" }
     ]
 
     addLink(links);
@@ -11,10 +9,10 @@ window.onload = function() {
 
 function addLink(links) {
     const ol = document.getElementById("week-links");
-    let li = document.createElement('li');
-    let a = document.createElement('a');
 
     for (let i = 0; i < links.length; i++) {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
         a.innerHTML = links[i].label;
         a.href = links[i].url;
         li.appendChild(a);
