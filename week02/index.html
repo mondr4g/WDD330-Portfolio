@@ -64,7 +64,7 @@
                 </ul>
                 <br>
 
-                <h3>Arithmetic Operations</h3>
+                <h4>Arithmetic Operations</h4>
                 <p>All the usual arithmetic operations can be carried out in JavaScript.</p>
                 <ul>
                     <li>Addition: 5 + 4.3</li>
@@ -76,46 +76,81 @@
                 </ul>
                 <br>
 
-                <h3>NaN</h3>
+                <h4>NaN</h4>
                 <p>NaN is an error value that is short for "Not a Number". It is used when an operation is attempted and
                     the result isn’t numerical, like if you try to multiply a string by a number.</p>
             </section>
             <section class="reading">
-                <h3>Local Storage</h3>
-                <p>LocalStorage is a property of JS that we could use to store or save data as key-value on the web
-                    browser.
-                    This data do not expire, that means it is not going to be delated, even if we close the web browser.
-                    If we wanted to use this property to store a value, we need to do something like the code bellow:
-                </p>
-                <p>function saveData() { <br>
-                    let value = document.getElementById("value").value;<br>
-                    localStorage.setItem("value",value);<br>
-                    }
+                <h3>Arrays, Logic, and Loops</h3>
+                <h4>Arrays</h4>
+                <p>An array is an ordered list of values. To create an array literal, simply write a pair of square
+                    brackets: <br>const myArray = [];</p><br>
+                <p>You can also use an array constructor function: <br>const myArray = new Array();</p><br>
+                <p>Arrays are not primitive values but a special built-in object, as we can see when we use the typeof
+                    operator: <br>typeof []</p>
+                <br>
+                <h4>Adding Values to Arrays</h4>
+                <p>To place the string 'Superman' inside the first element of our heroes array, we can assign it to
+                    element 0 , like so: <br>heroes[0] = 'Superman';</p><br>
+                <p>Each item in an array can be treated like a variable. You can change the value using the assignment
+                    operator = . For example, we can change the value of the first item in the heroes array to 'Batman':
+                    <br>heroes[0] = 'Batman';</p><br>
+                <p>We can add more values to our array by assigning them to other indices: <br>heroes[1] = 'Wonder
+                    Woman';<br>heroes[2] = 'Flash';</p><br>
+                <h4>Removing Values from Arrays</h4>
+                <p>The delete operator will remove an item from an array: <br>delete avengers[3];</p><br>
+                <h4>Logic</h4>
+                <p>In this section, we’ll begin to look at logical conditions that allow you to control the flow of a
+                    program by running different blocks of code, depending on the results of certain operations.</p><br>
+                <h4>if Statements</h4>
+                <p>if (condition) { <br>// code to run if condition is true <br>}</p><br>
+                <h4>else Statements</h4>
+                <p>if (condition) { <br>// code to run if condition is true <br>} else {<br>// code to run if condition
+                    is false <br>}</p><br>
+                <h4>Ternary Operator</h4>
+                <p>A shorthand way of writing an if ... else statement is to use the ternary operator, ? , which takes
+                    three operands in the following format: <br>condition ? (//code to run if condition is true) :
+                    (//code to run if condition is false)
+                </p><br>
+                <h4>Switch Statements</h4>
+                <p>The switch operator can be used to make your code easier to follow when there are lots of conditions
+                    to test. The example above can be rewritten using a switch statement like so:<br>switch (number)
+                    {<br>case 4: <br>console.log('You rolled a four'); <br>break; <br>case 5: <br>console.log('You
+                    rolled a five'); <br>break; <br>default: <br>console.log('You rolled a number less than four');
+                    <br>break; <br>}
                 </p>
                 <br>
-                <h4>Exercise</h4>
-                <br>
-                <h5>Story Editor</h5>
-                Story Name:<input id=name_input></input>
-                <section>
-                    <button onclick="loadStory()">Find and Edit It</button>
-                    <button onclick="saveStory()">Save It</button>
-                    <button onclick="dsiplayStory()">Display It</button>
-                </section>
-                <textarea id="story_editor" placeholder="Write a totally awesome story here."
-                    style="width: 800px; height: 250px; background-color: lightyellow;"></textarea>
-                <section id="story_display"></section>
+                <h4>Loops</h4>
+                <p>Loops will repeat a piece of code over and over again according to certain conditions.</p><br>
+                <h4>While Loops</h4>
+                <p>while (condition) { <br>// do something <br>}</p><br>
+                <h4>do ... while Loops</h4>
+                <p>do { <br>// do something <br>} while(condition)</p><br>
+                <h4>For Loops</h4>
+                <p>for (initialization ; condition ; after) { // do something })</p>
             </section>
             <section class="reading">
-                <h3>Master Mobile UX</h3>
-                <ul>
-                    <li>Know your users better than them self.</li>
-                    <li>Reachability, simple.</li>
-                    <li>Give a fluid menu to navigate trough the website.</li>
-                    <li>Forms without float labels, resize inputs.</li>
-                    <li>avoid pop up advertising.</li>
-                    <li>Small and simple Ads.</li>
-                </ul>
+                <h3>Functions</h3>
+                <p>A function is a chunk of code that can be referenced by a name, and is almost like a small, self-contained mini program. Functions can help reduce repetition and make code easier to follow.</p><br>
+                <h4>Defining a Function</h4>
+                <p>There are a number of ways to define a function in JavaScript. Three of the most common are covered below. ES6 introduced a new way to define functions, using what is known as 'arrow' notation. This is covered later in the chapter.</p><br>
+                <h4>Function Declarations</h4>
+                <p>function hello() { <br> console.log('Hello World'); <br>}</p><br>
+                <h4>Function Expressions</h4>
+                <p>const goodbye = function() { <br>console.log('Goodbye World'); <br>};</p><br>
+                <h4>Invoking a Function</h4>
+                <p>hello();</p><br>
+                <h4>Return Values</h4>
+                <p>function howdy() { <br> return 'Howdy World'; <br>}</p><br>
+                <h4>Parameters and Arguments</h4>
+                <p>function square(x) { <br>return x*x; <br>}</p>
+            </section>
+            <section class="reading">
+                <h3>Exercises</h3>
+                <p>function min(a,b) { <br>if(a < b) { <br>else return b; <br>} <br>console.log(min(0, 10))</p>
+                <div id="ex1">
+                    Min: 
+                </div>
             </section>
         </div>
     </main>
@@ -142,7 +177,7 @@
     <a href="https://wa.me/524491904783/?text=Hola" target="_blank" id="contact-whats"><i
             class="fa fa-whatsapp"></i></a>
 </body>
-<script src="../js/w01.js"></script>
+<script src="../js/w02.js"></script>
 <script src="https://kit.fontawesome.com/20512df472.js" crossorigin="anonymous"></script>
 
 </html>
