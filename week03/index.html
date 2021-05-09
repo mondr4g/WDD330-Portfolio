@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD330 | Week 02</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <h2 class="course"><a href="../index.html">WDD330</a></h2>
+            <h2>Eduardo Mena</h2>
+        </div>
+    </header>
+
+    <main>
+        <div id="main-content">
+            <h2>Notes</h2>
+            <section class="reading">
+                <h3>Object methods, "this"</h3>
+                <p>Objects are usually created to represent entities of the real world, like users, orders and so on:
+                </p>
+                <code>
+                    <pre>
+                        let user = {
+                            name: "John",
+                            age: 30
+                        }
+                    </pre>
+                </code>
+                <p>Actions are represented in JavaScript by functions in properties.</p>
+                <h4>Methods examples</h4>
+                <p>Teaching <code>user</code> to say hello:</p>
+                <code>
+                    <pre>
+                        let user = {
+                            name: "John",
+                            age: 30
+                        };
+
+                        user.sayHi = function() {
+                            alert("Hello!");
+                        };
+
+                        user.sayHi(); // Hello!
+                    </pre>
+                </code>
+                <p>We can also use a pre-declared function as method, like this:</p>
+                <code>
+                    <pre>
+                        let user = {
+                            // ...
+                        }
+
+                        // first, declare
+                        function sayHi() {
+                            alert("Hello");
+                        };
+
+                        // then add as a method
+                        user.sayHi = sayHi;
+
+                        user.sayHi(); // Hello!
+                    </pre>
+                </code>
+                <h4>Method shorthand</h4>
+                <p>There exist a shorter syntax for methods in object literal:</p>
+                <code>
+                    <pre>
+                        // these objects do the same
+
+                        user = {
+                        sayHi: function() {
+                            alert("Hello");
+                        }
+                        };
+
+                        // method shorthand looks better, right?
+                        user = {
+                        sayHi() { // same as "sayHi: function(){...}"
+                            alert("Hello");
+                        }
+                        };    
+                    </pre>
+                </code>
+                <h4>"this" in methods</h4>
+                <p>To acces the object, a method can use the <code>this</code> keyword. <br>For instance:</p>
+                <code>
+                    <pre>
+                        let user = {
+                            name: "John",
+                            age: 30,
+                          
+                            sayHi() {
+                              // "this" is the "current object"
+                              alert(this.name);
+                            }
+                          
+                        };
+                          
+                        user.sayHi(); // John    
+                    </pre>
+                </code>
+                <p>It is also possible to acces the object without <code>this</code>, by refering it via the outer
+                    variable:</p>
+                <code>
+                    <pre>
+                        let user = {
+                            name: "John",
+                            age: 30,
+                          
+                            sayHi() {
+                              alert(user.name); // "user" instead of "this"
+                            }
+                          
+                        };    
+                    </pre>
+                </code>
+                <h4>"this" is not bound</h4>
+                <p>In JavaScript, keyword this behaves unlike most other programming languages. It can be used in any
+                    function, even if it’s not a method of an object.</p>
+                <code>
+                    <pre>
+                        function sayHi() {
+                            alert( this.name );
+                        }    
+                    </pre>
+                </code>
+                <p>The value of this is evaluated during the run-time, depending on the context.</p>
+                <code>
+                    <pre>
+                        let user = { name: "John" };
+                        let admin = { name: "Admin" };
+                        
+                        function sayHi() {
+                          alert( this.name );
+                        }
+                        
+                        // use the same function in two objects
+                        user.f = sayHi;
+                        admin.f = sayHi;
+                        
+                        // these calls have different this
+                        // "this" inside the function is the object "before the dot"
+                        user.f(); // John  (this == user)
+                        admin.f(); // Admin  (this == admin)
+                        
+                        admin['f'](); // Admin (dot or square brackets access the method – doesn't matter)    
+                    </pre>
+                </code>
+                <h4>Arrow functions have no "this"</h4>
+                <p>Arrow functions are special: they don’t have their “own” this. If we reference this from such a
+                    function, it’s taken from the outer “normal” function.</p>
+                <p>For instance, here arrow() uses this from the outer user.sayHi() method:</p>
+                <code>
+                    <pre>
+                        let user = {
+                            firstName: "Ilya",
+                            sayHi() {
+                              let arrow = () => alert(this.firstName);
+                              arrow();
+                            }
+                          };
+                          
+                        user.sayHi(); // Ilya    
+                    </pre>
+                </code>
+            </section>
+
+            <section class="reading">
+                <h3>Objects</h3>
+                <h4>Object Literals</h4>
+                <p>An object in JavaScript is a self-contained set of related values and functions. They act as a
+                    collection of named properties that map to any JavaScript value such as strings, numbers, booleans,
+                    arrays and functions. If a property’s value is a function, it is known as amethod.</p>
+                <h4>A Super Example</h4>
+                <code>
+                    <pre>
+                        const superman = {
+                            name: 'Superman',
+                            'real name': 'Clark Kent',
+                            height: 75,
+                            weight: 235,
+                            hero: true,
+                            villain: false,
+                            allies: ['Batman','Supergirl','Superboy'],
+                            fly() {
+                                return 'Up, up and away!';
+                            }
+                        };    
+                    </pre>
+                </code>
+                <h4>Creating Objects</h4>
+                <p>To create an object literal, simply enter a pair of curly braces. </p>
+                <code>const spiderman = {};</code>
+                <p>It’s also possible to create an object using a constructor function.</p>
+                <code>const spiderman = new Object();</code>
+                <p>ES6 provided a shorthand method of creating objects if a property key is the same as a variable name
+                    that the property value is assigned to:</p>
+                <code>
+                    <pre>
+                        const name = 'Iron Man';
+                        const realName = 'Tony Stark';
+                        // long way
+                        const ironMan = { name: name, realName: realName };
+                        // short ES6 way
+                        const ironMan = { name, realName };    
+                    </pre>
+                </code>
+                <h4>Accessing Properties</h4>
+                <p>We can acces properties on the common way:</p>
+                <code>
+                    <pre>
+                        superman.name 
+                        << 'Superman'
+                    </pre>
+                </code>
+                <p>We can also acces an object's properties using bracket notation.</p>
+                <code>
+                    <pre>
+                        superman['name'] 
+                        << 'Superman'
+                    </pre>
+                </code>
+                <h4>Removing Properties</h4>
+                <p>Any property can be removed from an object using the delete operator.</p>
+                <code>
+                    <pre>
+                        delete superman.fly
+                        << true
+                    </pre>
+                </code>
+            </section>
+
+            <section class="reading">
+                <h3>The Document Object Model</h3>
+                <h4>What is the DOM?</h4>
+                <p>The Document Object Model, or DOM for short, represents an HTML document as a network of connected
+                    nodes that form a tree-like structure.</p>
+                <p>The DOM treats everything on a web page as a node. HTML tags, the text inside these tags, even the
+                    attributes of a tag are all nodes. The HTML tag is the root node, and every other part of the
+                    document is a child node of this.</p>
+                <p>The DOM is not actually part of JavaScript because it islanguage agnostic(although JavaScript is, by
+                    far, the language most commonly used with it). This means it can be used in any programming
+                    language, not just JavaScript. We can use JavaScript to access and modify different parts of a web
+                    page using a special built-in object called document .</p>
+                <h4>Get An Element By Its ID</h4>
+                <p>The getElementById() method does exactly what it says on the tin. It returns a reference to the
+                    element with a unique id attribute that is given as an argument.</p>
+                <code>const h1 = document.getElementById('title');</code>
+                <h4>Get Elements By Their Tag Name</h4>
+                <p>getElementsByTagName() will return a live node list of all the elements with the tag name that is
+                    provided as an argument</p>
+                <code>const listItems = document.getElementByTagName('li');</code>
+                <h4>Get Elements By Their Class Name</h4>
+                <p>getElementsByClassName() will return a live node list of all elements that have the class name that
+                    is supplied as an argument.</p>
+                <code>const heroes = document.getElementByClassName('hero');</code>
+            </section>
+
+            <section class="reading">
+                <h3>Event Listeners</h3>
+                <p>A notification to alert you when something happens. Instead of the program having to constantly check
+                    to see if an event has occurred, the event listener will let it know when the event happens, and the
+                    program can then respond appropriately. This allows the program to continue with other tasks while
+                    it waits for the event to happen.</p>
+                <p>The code to check if a user has clicked might look like the example below:</p>
+                <code>
+                    <pre>
+                        if (click) {
+                            doSomething();
+                            } else {
+                            // carry on with rest of the program
+                        }    
+                    </pre>
+                </code>
+                <p>The problem with this approach is that the program would have to keep returning to this if block to
+                    check if the click had happened. It’s a bit like having to check your email every few minutes. This
+                    is known as ablockingapproach to programming because checking for the click is blocking the rest of
+                    the program from running.</p>
+                <p>JavaScript, on the other hand, uses anon-blockingapproach that usesevent listenersto listen out for
+                    any clicks on the page. Every time the page is clicked, a callback function will be called. So the
+                    program can continue processing the rest of the code while it's waiting for the click event to
+                    happen.</p>
+                <p>The following code can be used to attach an event listener to the document that fires when the user
+                    clicks anywhere on the page:</p>
+                <code>document.body.addEventListener("click", doSomething);</code>
+                <h4>The Event Object</h4>
+                <p>Whenever an event handler is triggered by an event, the callback function is called. This function is
+                    automatically passed an event object as a parameter that contains information about the event.</p>
+                <code>
+                    <pre>
+                        function doSomething(event){
+                            console.log(event.type);
+                        }
+                    </pre>
+                </code>
+                <h4>The Event Target</h4>
+                <p>The target property returns a reference to the node that fired the event. If you change the
+                    doSomething() function to the following, it will show a message in the console telling us the node
+                    that was clicked on:</p>
+                <code>
+                    <pre>
+                        function doSomething(event){
+                            console.log(event.target);
+                        }
+                    </pre>
+                </code>
+                <h4>Mouse Events</h4>
+                <p>We have already seen the click event that occurs when a mouse button is clicked. There are also the
+                    mousedown and mouseup events. These both occurbeforea click event is fired.</p>
+                <code>
+                    <pre>
+                        const clickParagraph = document.getElementById('click');
+                        clickParagraph.addEventListener('click',() => console.log('click') );
+                        clickParagraph.addEventListener('mousedown',() => console.log('down') );
+                        clickParagraph.addEventListener('mouseup',() => console.log('up') );
+                    </pre>
+                </code>
+            </section>
+
+            <section class="reading">
+                <h3>Exercise</h3>
+                <h4>Using DOM</h4>
+                <p>Code:</p>
+                <code>
+                    <pre>
+                        <!-- Run code here in the context of Chapter 14-->
+                        &lt;!doctype html&gt;
+
+                        &lt;p style="text-align: center"&gt;
+                        &lt;img src="img/cat.png" style="position: relative"&gt;
+                        &lt;/p&gt;
+                        &lt;script&gt;
+                        let cat = document.querySelector("img");
+                        let angle = Math.PI / 2;
+                        function animate(time, lastTime) {
+                            if (lastTime != null) {
+                            angle += (time - lastTime) * 0.001;
+                            }
+                            cat.style.top = (Math.sin(angle) * 20) + "px";
+                            cat.style.left = (Math.cos(angle) * 200) + "px";
+                            requestAnimationFrame(newTime => animate(newTime, time));
+                        }
+                        requestAnimationFrame(animate);
+                        &lt;script&gt;
+                    </pre>
+                </code>
+                <p>Result:</p>
+                <div class="result">
+                    <p style="text-align: center">
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4cc95e3e-4d8a-4bf8-99c8-6166084d56ec/d99ey1q-e8cc1684-ceea-492a-b876-50ffc71201b2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRjYzk1ZTNlLTRkOGEtNGJmOC05OWM4LTYxNjYwODRkNTZlY1wvZDk5ZXkxcS1lOGNjMTY4NC1jZWVhLTQ5MmEtYjg3Ni01MGZmYzcxMjAxYjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Gks3x3Ptj8uJ2DvKsrt2OtuYLz66u4tlU81X29NXzJ4"
+                            style="position: relative">
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <a href="#" class="brand-logo"><i class="fas fa-dragon"></i> Drackode</a>
+                <p>&copy; 2021 | Drackode | Aguascalientes, Mexico</p>
+            </div>
+            <div class="contact">
+                <h2>Contact</h2>
+                <p><i class="fas fa-envelope"></i> dr4ckode@gmail.com </p>
+                <p><i class="fa fa-phone"></i> + 52 4491904783 </p>
+            </div>
+            <div class="social-media">
+                <h2>Social Media</h2>
+                <a href="https://www.facebook.com/jose.e.mena.14/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/jmena.4/?hl=es-la" target="_blank"><i
+                        class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../js/w03.js"></script>
+<script src="https://kit.fontawesome.com/20512df472.js" crossorigin="anonymous"></script>
+
+</html>

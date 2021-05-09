@@ -67,6 +67,17 @@ a {
     color: black;
 }
 
+p,
+h4 {
+    margin-bottom: 10px;
+}
+
+h4 {margin-top: 10px;}
+
+code {
+    font-size: 0.9rem;
+}
+
 a:hover {
     color: #ff006e;
 }
