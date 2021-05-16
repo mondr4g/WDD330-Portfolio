@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD330 | Week 02</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <h2 class="course"><a href="../index.html">WDD330</a></h2>
+            <h2>Eduardo Mena</h2>
+        </div>
+    </header>
+
+    <main>
+        <div id="main-content">
+            <h2>Notes</h2>
+            <section class="reading">
+                <h3>Forms</h3>
+                <p>Forms are made up of a <code>&lt;form&gt;</code> element that contains form controls such as input
+                    fields, select menus and buttons. These input fields can be populated with information that is
+                    processed once the form has been submitted.</p>
+                <h4>A Searching Example</h4>
+                <p>We’ll start off with a simple example of a form that contains one input field, and a button to submit
+                    a search query, not unlike the one used by Google. This example doesn’t use any styles; you just
+                    need to create a file called <code>search.html</code> that contains the following code:</p>
+                <code>
+                    <pre>
+                        &lt;!doctype html&gt;
+                        &lt;html lang='en'&gt;
+                        &lt;head&gt;
+                            &lt;meta charset='utf-8'&gt;
+                            &lt;title&gt;Search&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;form name='search' action='/search'&gt;
+                                &lt;input name='searchInput'&gt;
+                                &lt;button type='submit'&gt;Search&lt;/button&gt;
+                            &lt;/form>
+                        &lt;script src='main.js'&gt;&lt;/script&gt;
+                        &lt;/body&gt;
+                        &lt;/html&gt;   
+                    </pre>
+                </code>
+                <p>This form has a <code>name</code> attribute of <code>search</code> , and contains two controls: an
+                    input field where a user can enter a search phrase, and a button to submit the form. The form can
+                    also be submitted by pressing Enter.</p>
+                <p>The <code>action</code> attribute is the URL that the form will be submitted to so it can be
+                    processed on the server side. The input field also has a <code>name</code> attribute of
+                    <code>searchInput</code> that is used to access the information inside it.</p>
+                <p>You should also create a file called <code>main.js</code> to put the JavaScript in. This can be saved
+                    in the same directory as <code>search.html</code> .</p>
+                <h4>Accessing Form Elements</h4>
+                <code>const form = document.forms[0];</code><br>
+                <code>const form = document.getElementsByTagname('form')[0];</code><br>
+                <code>const form = document.forms.search;</code><br>
+                <code>const form = document.forms['search'];</code><br>
+                <code>const [input,button] = form.elements;</code><br>
+                <code>const input = form.searchInput</code><br>
+                <code>const input = form['searchInput']</code><br>
+                <h4>Form Properties and Methods</h4>
+                <p>Form objects have a number of useful properties and methods that can be used to interact with the
+                    form.</p>
+                <p>The form.submit() method will submit the form automatically. Note that submitting a form using this
+                    method won’t trigger the form submit event that's covered in the next section.</p>
+                <code>
+                    <pre>
+                        &lt;button type='submit'&gt;Submit&lt;/button&gt; 
+                        &lt;input type='submit' value='Submit'&gt; 
+                        &lt;input type='image' src='button.png'&gt;     
+                    </pre>
+                </code>
+                <p>The form.reset() method will reset all the form controls back to their initial values specified in
+                    the HTML.</p>
+                <code>&lt;button type='reset'&gt;Reset&lt;/button&gt;</code>
+                <h4>Form Controls</h4>
+                <p>Some common types of form control are:</p>
+                <ol>
+                    <li> <code>&lt;input&gt;</code> fields, including text, passwords, check boxes, radio buttons, and
+                        file uploads</li>
+                    <li> <code>&lt;select&gt;</code> menus for drop-down lists of options</li>
+                    <li> <code>&lt;textarea&gt;</code> elements for longer text entry</li>
+                    <li> <code>&lt;button&gt;</code> elements for submitting and resetting forms</li>
+                </ol>
+                <h4>Input Fields</h4>
+                <p>Input fields are the most common types of form control, but there are several categories of input
+                    field as you’ll soon see.</p>
+            </section>
+            <section class="reading">
+                <h3>Object Oriented Programming</h3>
+                <p>Object-oriented programming is often used to model representations of objects in the real world.
+                    There are three main concepts in OOP: encapsulation, polymorphism and inheritance. I’m going to use
+                    my juicer to illustrate how each of these concepts can be applied in a programming environment,
+                    since the juicer can be considered an object. It’s a wonderful machine that makes fresh juice for me
+                    every morning. In many ways, my juicer can be thought of as an object, as it has properties such as
+                    speed and capacity, and also has methods or actions it can perform, such as juicing, switching on
+                    and switching off.</p>
+                <h4>Encapsulation</h4>
+                <p>When I use my juicer, I put the fruit into the machine, press the 'on' button and out comes the
+                    juice. I haven’t a clue how it does it—only that it makes a very loud noise! This demonstrates the
+                    concept of encapsulation: the inner workings are kept hidden inside the object and only the
+                    essential functionalities are exposed to the end user, such as the 'on' button. In OOP, this
+                    involves keeping all the programming logic inside an object and making methods available to
+                    implement the functionality, without the outside world needing to knowhowit’s done.</p>
+                <h4>Polymorphism</h4>
+                <p>My juicer isn't the only appliance I own that has an 'on' button, although the way the on button
+                    works is slightly different for each appliance. My juicer also uses the same electrical outlet as
+                    other appliances in my kitchen. I can also place various types of fruit into it and it still juices
+                    them. These examples demonstrate the concept of polymorphism: the same process can be used for
+                    different objects. In OOP, this means various objects can share the same method, but also have the
+                    ability to override shared methods with a more specific implementation.</p>
+                <h4>Inheritance</h4>
+                <p>I’d really like the next model up from my juicer, as it can deal with more types of fruit and it’s a
+                    bit quieter. Even though it has these extra features, I’m sure that inside it uses many of the same
+                    parts that my juicer has. This demonstrates the concept of inheritance: taking the features of one
+                    object then adding some new features. In OOP, this means we can take an object that already exists
+                    and inherit all its properties and methods. We can then improve on its functionality by adding new
+                    properties and methods.</p>
+                <h4>Classes</h4>
+                <p>Many object-oriented languages, such as Java and Ruby, are known asclass-basedlanguages. This is
+                    because they use a class to define a blueprint for an object. Objects are then created as an
+                    instance of that class, and inherit all the properties and methods of the class. In my juicer
+                    example, the juicer class would represent the design of the juicer, and each juicer that’s made on
+                    the production line would be instances of that class.</p>
+                <p>JavaScript didn't have classes before ES6, and used the concept of using actual objects as the
+                    blueprint for creating more objects. This is known as aprototype-basedlanguage. In the juicer
+                    example, this might involve building an actual prototype juicer then using this prototype as the
+                    basis for making all the other juicers. The juicers based on the prototype would be able to do
+                    everything the prototype could do, with some being able to do even more. Even though ES6 now
+                    supports classes, it still uses this prototypal inheritance model in the background.</p>
+            </section>
+            <section class="reading">
+                <h3>Modern JavaScript Development</h3>
+                <h4>Libraries</h4>
+                <p>A JavaScript library is a piece of code that provides several methods that make it easier to achieve
+                    common tasks. JavaScript is an extremely flexible language that can accomplish most programming
+                    tasks – but not all undertakings are as easy to do as they should be. A library will abstract
+                    functionality into easier-to-use functions and methods. These can then be used to complete common
+                    tasks without having to use lots of repetitive code.</p>
+                <h4>jQuery</h4>
+                <p>jQuery is the most popular of all the JavaScript libraries used today, as seen in these statistics
+                    onW3TechsandBuilt With.. It is used in a huge number of commercial websites and has a plugin system
+                    that makes it easy to extend and use to build common web page elements, such as a lightbox or
+                    carousel widget.</p>
+            </section>
+            <section class="reading">
+                <h3>Exercise</h3>
+                <code>
+                    <pre>
+                        // Run code here in the context of Chapter 6
+
+                        class Temperature {
+                          constructor(celsius) {
+                            this.celsius = celsius;
+                          }
+                          get fahrenheit() {
+                            return this.celsius * 1.8 + 32;
+                          }
+                          set fahrenheit(value) {
+                            this.celsius = (value - 32) / 1.8;
+                          }
+                        
+                          static fromFahrenheit(value) {
+                            return new Temperature((value - 32) / 1.8);
+                          }
+                        }
+                        
+                        let temp = new Temperature(22);
+                        console.log(temp.fahrenheit);
+                        temp.fahrenheit = 86;
+                        console.log(temp.celsius);
+                            
+                    </pre>
+                </code>
+                <h4>Output Console: </h4>
+                <div id="ex1"></div>
+                <div id="ex2"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <a href="#" class="brand-logo"><i class="fas fa-dragon"></i> Drackode</a>
+                <p>&copy; 2021 | Drackode | Aguascalientes, Mexico</p>
+            </div>
+            <div class="contact">
+                <h2>Contact</h2>
+                <p><i class="fas fa-envelope"></i> dr4ckode@gmail.com </p>
+                <p><i class="fa fa-phone"></i> + 52 4491904783 </p>
+            </div>
+            <div class="social-media">
+                <h2>Social Media</h2>
+                <a href="https://www.facebook.com/jose.e.mena.14/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/jmena.4/?hl=es-la" target="_blank"><i
+                        class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../js/w04.js"></script>
+<script src="https://kit.fontawesome.com/20512df472.js" crossorigin="anonymous"></script>
+
+</html>
