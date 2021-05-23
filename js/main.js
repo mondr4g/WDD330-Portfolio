@@ -3,7 +3,8 @@ window.onload = function() {
         { label: "Week1 notes/exercises", url: "week01/index.html" },
         { label: "Week2 notes/exercises", url: "week02/index.html" },
         { label: "week3 notes/exercises", url: "week03/index.html" },
-        { label: "week4 notes/exercises", url: "week04/index.html" }
+        { label: "week4 notes/exercises", url: "week04/index.html" },
+        { label: "week5 notes/exercises", url: "week05/index.html" }
     ]
 
     addLink(links);
