@@ -58,7 +58,6 @@ export default class Todos {
     }
 
     addTabListeners() {
-        alert('hola');
         const lsT = Array.from(document.querySelectorAll('.tab'));
         lsT.forEach(tab => {
             tab.addEventListener('click', event => {
