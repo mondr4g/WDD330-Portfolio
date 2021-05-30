@@ -107,6 +107,45 @@ main {
     color: white;
 }
 
+.completed label{
+    color: #7180B9; 
+    text-decoration: line-through;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    font-size: 1vw;
+    margin-bottom: 20px;
+    padding: 1em;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.delete {
+    width: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background-color: #7400b8;
+    color: white;
+}
+
+input[type=checkbox] {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 3px;
+    border: 1px solid #2E1760; 
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
 @media (max-width: 900px) {
     #app {
         width: 80%;
@@ -127,5 +166,9 @@ main {
 
     #footer-app button, #footer-app input, #header-app {
         border-radius: 0;
+    }
+
+    ul {
+        font-size: 5vw;
     }
 }
