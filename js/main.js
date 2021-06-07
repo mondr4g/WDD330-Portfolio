@@ -5,7 +5,8 @@ window.onload = function() {
         { label: "week3 notes/exercises", url: "week03/index.html" },
         { label: "week4 notes/exercises", url: "week04/index.html" },
         { label: "week5 notes/exercises", url: "week05/index.html" },
-        { label: "week6 Todo application", url: "week06/index.html"}
+        { label: "week6 Todo application", url: "week06/index.html"},
+        { label: "week7 notes/exercises", url: "week07/index.html"}
     ]
 
     addLink(links);
