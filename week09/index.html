@@ -1,0 +1,174 @@
+.j
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD330 | Week 09</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <h2 class="course"><a href="../index.html">WDD330</a></h2>
+            <h2>Eduardo Mena</h2>
+        </div>
+    </header>
+
+    <main>
+        <div id="main-content">
+            <h2>Notes</h2>
+            <section class="reading">
+                <h3>The Window Object</h3>
+                <h4>The Browser Object Model</h4>
+                <p>The Browser Object Model (or BOM for short) is a collection of properties and methods
+                    that contain information about the browser and computer screen. For example, we can find
+                    out which browser the users are utilising (though, this method is unreliable), the
+                    dimensions of their screens, and which pages they have visited before the current page. It
+                    can also be used for the rather dubious practice of creating pop-up windows, if you’re into
+                    annoying your users.</p>
+                <p>There is no official standard for the BOM, although there are a number of properties and
+                    methods that are supported by all the major browsers, making a sort of de facto standard.
+                    These properties and methods are made available through the window object. Every
+                    browser window, tab, popup, frame, and iframe has a window object.</p>
+                <h4>Going Global</h4>
+                <p>Global variables are actual properties of a global object. In a browser environment, the
+                    global object is the window object. This means that any global variable created is actually a
+                    property of the window object.</p>
+                <h4>The Browser History</h4>
+                <p>The window.history property can be used to access information about any previously
+                    visited pages in the current browser session. Avoid confusing this with the new HTML5
+                    History API.</p>
+                <p>The window.history.length property shows how many pages have been visited before
+                    arriving at the current page.</p>
+                <p>The window.history.go() method can be used to go to a specific page, where 0 is the
+                    current page:</p>
+                <code>
+                    <pre>
+                        window.history.go(1); // goes forward 1 page
+                        window.history.go(0); // reloads the current page
+                        window.history.go(-1); // goes back 3 pages   
+                    </pre>
+                </code>
+                <h4>Controlling Windows</h4>
+                <p>A new window can be opened using the window.open() method. This takes the URL of
+                    the page to be opened as its first parameter, and a list of attributes as the second parameter.
+                    This can also be assigned to a variable, so the window can then be referenced later in the
+                    code:</p>
+                <code>
+                    <pre>
+                        popup = window.open(‘https://sitepoint.com’,‘SitePoint’,‘width=400,
+                        ↵height=400,resizable=yes’);                           
+                    </pre>
+                </code>
+                <p>The window.close() method can be used to close a window:</p>
+                <code>popup.close();</code>
+                <p>It is also possible to move a window using the window.move() method. This takes two
+                    parameters that are the X and Y coordinates of the screen that the window is to be moved
+                    to:</p>
+                <code>indow.moveTo(0,0); // will move the window to the top-left corner
+                    ↵of the screen</code>
+                <p>You can resize a window using the window.resizeTo() method. This takes two
+                    parameters that specify the width and height of the resized window’s dimensions:</p>
+                <code>window.resizeTo(600,400);</code>
+                <h4>Cookies</h4>
+                <p>Cookies are small files that are saved locally on a user’s computer. They were invented by
+                    Netscape as a way of getting round HTTP being a stateless protocol. This means that a
+                    browser does not remember anything from one request to another. So every time a user
+                    visits a page, nothing about any previous visits is remembered. Cookies can be used to
+                    sidestep this problem by storing information that can then be retrieved between requests.
+                    </p>
+                <p>A restriction of cookies is that they can only be read by a web page from the same domain
+                    that set them. This is to stop sites being able to access information about users, such as
+                    other sites they have visited. Cookies are also limited to storing up to 4KB of data,
+                    although 20 cookies are allowed per domain, which can add up to quite a lot of data.
+                    </p>
+                <p>Cookies can be used for personalising a user’s browsing experience, storing user
+                    preferences, keeping track of user choices (such as a shopping cart), authentication and
+                    tracking users. The use of cookies for tracking purposes has been much maligned in recent
+                    years.
+                    </p>
+                <h4>Creating Cookies</h4>
+                <p>To create a cookie, you assign it to JavaScript’s “cookie jar,” the document.cookie
+                    property, like so:</p>
+                <code>
+                    <pre>
+                        document.cookie = “name=Superman”
+                        << “name=Superman”
+                    </pre>
+                </code>
+                <p>The document.cookie property acts like a special type of string. Assigning another cookie
+                    to it won’t overwrite the entire property, it will just append it to the end of the string. So
+                    we can add more cookies by assigning them to document.cookie:</p>
+                <code>
+                    <pre>
+                        document.cookie = “hero=true”
+                        << “hero=true”
+                        document.cookie = “city=Metropolis”
+                        << “city=Metropolis”   
+                    </pre>
+                </code>
+            </section>
+            <section class="reading">
+                <h3>HTML5 APIs</h3>
+                <h4>The data- Attribute</h4>
+                <p>The data- attribute is a way of embedding data in a web page using custom attributes that
+                    are ignored by the browser. They’re also private to a page, so shouldn’t be used by an
+                    external service: their sole purpose is to be used by a JavaScript program. This means that
+                    they are perfect for adding data to be used either by an external API or as a hook that the
+                    program utilizes to access a particular element on the page.
+                    </p>
+                <p>The names of these attributes can be decided by the developer, but they must use the
+                    following format: <br>
+                    start with data <br> contain only lowercase letters
+                    <br> include an optional string value
+                    <br> Examples could be:</p>
+                <code>
+                    <pre>
+                        data-toppings=“ham & pineapple”
+                        data-hero=“true”
+                        data-dropdown
+                        data-user=“DAZ”
+                        data-max-length=“32”
+                    </pre>
+                </code>
+                <h4>HTML5 APIs</h4>
+                <p>The HTML5 specification contains a number of APIs that help to gain access to the
+                    hardware, such as cameras, batteries, geolocation, and the graphics card. Hardware
+                    evolves quickly and APIs are frequently introduced to give developers access and control
+                    new features that appear in the latest devices.
+                    In this section, we’ll look at some of the more popular APIs that are already supported in
+                    most modern browsers; however, due to the ever-changing nature of most APIs, it is still
+                    best practice to use object-detection tests before using any of the API methods.
+                    </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <a href="#" class="brand-logo"><i class="fas fa-dragon"></i> Drackode</a>
+                <p>&copy; 2021 | Drackode | Aguascalientes, Mexico</p>
+            </div>
+            <div class="contact">
+                <h2>Contact</h2>
+                <p><i class="fas fa-envelope"></i> dr4ckode@gmail.com </p>
+                <p><i class="fa fa-phone"></i> + 52 4491904783 </p>
+            </div>
+            <div class="social-media">
+                <h2>Social Media</h2>
+                <a href="https://www.facebook.com/jose.e.mena.14/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/jmena.4/?hl=es-la" target="_blank"><i
+                        class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="../js/w05.js"></script>
+<script src="https://kit.fontawesome.com/20512df472.js" crossorigin="anonymous"></script>
+
+</html>
