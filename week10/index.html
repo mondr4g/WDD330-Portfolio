@@ -20,6 +20,58 @@
     <main>
         <div id="main-content">
             <h2>Notes</h2>
+            <section class='reading'>
+                <h3>Client-side form validation</h3>
+                <p>Before submitting data to the server, it is important to ensure all required form controls are filled
+                    out, in the correct format. This is called client-side form validation, and helps ensure data
+                    submitted matches the requirements set forth in the various form controls.</p>
+                <h3>What is form validation?</h3>
+                <p>When you enter data, the browser and/or the web server will check to see that the data is in the
+                    correct format and within the constraints set by the application. Validation done in the browser is
+                    called client-side validation, while validation done on the server is called server-side validation.
+                    In this chapter we are focusing on client-side validation.</p>
+                <h3>Different types of client-side validation</h3>
+                <ul>
+                    <li>Built-in form validation uses HTML5 form validation features, which we've discussed in many
+                        places throughout this module. This validation generally doesn't require much JavaScript.
+                        Built-in form validation has better performance than JavaScript, but it is not as customizable
+                        as JavaScript validation.</li>
+                    <li>JavaScript validation is coded using JavaScript. This validation is completely customizable, but
+                        you need to create it all (or use a library).</li>
+                </ul>
+                <h3>Using built-in form validation</h3>
+                <ul>
+                    <li>required: Specifies whether a form field needs to be filled in before the form can be submitted.
+                    </li>
+                    <li>minlength and maxlength: Specifies the minimum and maximum length of textual data (strings)</li>
+                    <li>min and max: Specifies the minimum and maximum values of numerical input types</li>
+                    <li>type: Specifies whether the data needs to be a number, an email address, or some other specific
+                        preset type.</li>
+                    <li>pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.
+                    </li>
+                </ul>
+            </section>
+            <section class="reading">
+                <h3>Using Fetch</h3>
+                <p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP
+                    pipeline, such as requests and responses. It also provides a global fetch() method that provides an
+                    easy, logical way to fetch resources asynchronously across the network.</p>
+                <p>This kind of functionality was previously achieved using XMLHttpRequest. Fetch provides a better
+                    alternative that can be easily used by other technologies such as Service Workers. Fetch also
+                    provides a single logical place to define other HTTP-related concepts such as CORS and extensions to
+                    HTTP.</p>
+                <p>The fetch specification differs from jQuery.ajax() in the following significant ways:</p>
+                <ul>
+                    <li>The Promise returned from fetch() won’t reject on HTTP error status even if the response is an
+                        HTTP 404 or 500. Instead, as soon as the server responds with headers, the Promise will resolve
+                        normally (with the ok property of the response set to false if the response isn’t in the range
+                        200–299), and it will only reject on network failure or if anything prevented the request from
+                        completing.</li>
+                    <li>fetch() won’t send cross-origin cookies unless you set the credentials init option. (Since April
+                        2018. The spec changed the default credentials policy to same-origin. Firefox changed since
+                        61.0b13.)</li>
+                </ul>
+            </section>
         </div>
     </main>
 
@@ -37,7 +89,8 @@
             <div class="social-media">
                 <h2>Social Media</h2>
                 <a href="https://www.facebook.com/jose.e.mena.14/" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/jmena.4/?hl=es-la" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.instagram.com/jmena.4/?hl=es-la" target="_blank"><i
+                        class="fa fa-instagram"></i></a>
             </div>
         </div>
     </footer>
