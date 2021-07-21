@@ -33,17 +33,28 @@
     background-position: center;
 }
 
-#subnav {
+#filters {
     background-color: var(--bg-color);
     padding: 1rem;
+
 }
 
-#subnav button {
+#options button, #subnav button {
     margin-left: 10px;
+    margin-top: 20px;
 }
 
 #search-movie {
     display: flex;
+}
+
+#subnav {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .mb-info {
@@ -121,7 +132,6 @@ span.r {
     transform: translateY(0);
 }
 
-
 .m-desc button {
     display: flex;
     margin: 0 auto;
@@ -169,7 +179,7 @@ span.r {
         width: 95%;
     }
 
-    #subnav {
+    #options {
         text-align: center;
     }
 }

@@ -1,20 +1,23 @@
 import Movies from './movies.js';
 
 const m = new Movies();
-
-const form = document.getElementById('search-movie');
-const searchbar = document.getElementById('search'); 
-const favorites = document.getElementById('fav');
-const catalog = document.getElementById('all');
+const cat = Array.from(document.getElementById('subnav').children);
 
 window.addEventListener('load', () => {
     // console.log("loading movies");
     m.getMostPopular();
+
+    cat.forEach(c => {
+        c.addEventListener('click', e => {
+            m.getCatMovies(c.id);
+        })
+    })
 });
 
-form.addEventListener('submit', (e) => {
+// Search Movie
+document.getElementById('search-movie').addEventListener('submit', (e) => {
     e.preventDefault();
-    const movie = searchbar.value;
+    const movie = document.getElementById('search').value;
     // selectedGenre=[];
     // setGenre();
     if(movie) {
@@ -25,13 +28,26 @@ form.addEventListener('submit', (e) => {
     }
 })
 
-favorites.addEventListener('click', (e) => {
+// Show all Movies
+document.getElementById('fav').addEventListener('click', (e) => {
     m.getFavorites();
 })
 
-catalog.addEventListener('click', (e) => {
+// Show Favorite Movies
+document.getElementById('all').addEventListener('click', (e) => {
     m.getMostPopular();
 })
+
+// // Show Kids Movies
+// document.getElementById('kids').addEventListener('click', (e) => {
+//     m.getKids();
+// })
+
+
+
+
+
+
 
 
 
