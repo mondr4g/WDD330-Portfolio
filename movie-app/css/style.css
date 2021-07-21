@@ -1,5 +1,5 @@
 :root {
-   --secondary-color: #ff0054;
+    --secondary-color: #ff0054;
     --bg-color: #242423;
 }
 
@@ -13,7 +13,8 @@
     padding: 1rem;
 }
 
-.navbar, #main-content {
+.navbar,
+#main-content {
     background-color: var(--bg-color);
 }
 
@@ -83,11 +84,11 @@ span.g {
 }
 
 span.o {
-    color: #ff5400;    
+    color: #ff5400;
 }
 
 span.r {
-    color: #ff0054;    
+    color: #ff0054;
 }
 
 .fa-star {
@@ -106,7 +107,7 @@ span.r {
     transition: transform 0.4s ease-in;
 }
 
-.movie:hover .m-desc{
+.movie:hover .m-desc {
     transform: translateY(0);
 }
 
@@ -151,7 +152,3 @@ span.r {
         width: 95%;
     }
 }
-
-
-
-
