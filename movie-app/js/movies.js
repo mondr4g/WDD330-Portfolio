@@ -1,10 +1,14 @@
+import * as movieLS from './movieLS.js';
+import * as cat from './categories.js';
+
 // TMDB API
 const KEY = 'api_key=1703cae1870e7130d55e3e8da1ad67e3';
 const URL = 'https://api.themoviedb.org/3';
 
 // HTML ELEMENTS
 const main = document.getElementById('main-content');
-const banner = document.getElementById('banner');
+
+var favorites = [];
 
 export default class Movies {
     constructor() {
@@ -25,12 +29,22 @@ export default class Movies {
             console.log(data.results)
             if(data.results.length === 0){
                 console.log('0 results');
-                showError(movie);
+                let msg =  'No results for ' + movie + ' on the catalog';
+                showError(msg);
 
             }
             else
                 this.showLastMovies(data.results);
         })
+    }
+
+    getFavorites() {
+        if(favorites.length === 0){
+            console.log('0 results');
+            showError('No movies added to favorites yet!!');
+        }
+        else
+            this.showLastMovies(favorites);
     }
 
     showLastMovies(data) {
@@ -42,27 +56,54 @@ export default class Movies {
             m.classList.add('movie');
             m.classList.add('card');
             m.innerHTML = `
-                 <img src="${this.urlIMG+poster_path}" alt="${title}" class="m-img card-img-top">
+                <i class="fas fa-heart" id="${id}"></i>
+                <img src="${this.urlIMG+poster_path}" alt="${title}" class="m-img card-img-top">
                 <div class="m-info card-body">
                     <h2 class="m-title card-text">${title}</h2>
                     <span class="m-rate ${getColor(vote_average)}">${vote_average} <i class="fas fa-star"></i></span>
                 </div>
                 <div class="m-desc card-text">
-                    <h2>Overview</h2>
+                    <h2>${title}</h2>
                     <p>${overview}</p>
                     <br/> 
-                    <button type="button" class="know-more btn btn-warning" id="${id}">Know More</button
                 </div>
-            
             `
-    
             main.appendChild(m);
     
-            // document.getElementById(id).addEventListener('click', () => {
-            //   console.log(id)
-            //   openNav(movie)
-            // })
+            // Add event listener for favorites
+            let heart = document.getElementById(id);
+            
+            if(movieLS.readFromLS(id)) {
+                heart.style.color = '#ff0054';
+            }
+
+            document.getElementById(id).addEventListener('click', () => {
+                let color = window.getComputedStyle( heart, null).getPropertyValue('color');  
+                console.log(color)
+                if(color == 'rgb(36, 36, 35)') {
+                    // New Favorite
+                    heart.style.color = '#ff0054';
+                    this.addMovie(id, e)
+                }
+                else if(color == 'rgb(255, 0, 84)') {
+                    // Out of Favorites
+                    heart.style.color = '#242423'; 
+                    this.removeMovie(id);
+                }
+            })
         })
+    }
+
+    addMovie(id, data) {
+        console.log(data);
+        favorites.push(data);
+        movieLS.writeToLS(id, data);
+    }
+
+    removeMovie(id) {
+        let m = favorites.findIndex(m => m.id == id);
+        favorites.splice(m, 1);
+        movieLS.removeFromLS(id);
     }
 }
 
@@ -76,23 +117,17 @@ function getColor(vote) {
     }
 }
 
-function showError(movie) {
+function showError(text) {
     console.log('no movie')
     main.innerHTML = '';
     const msg = document.createElement('div');
     msg.classList.add('m-error');
     msg.innerHTML = `
-        <p><i class="fas fa-exclamation-circle"></i> No results for '${movie}' on the catalog.<p>    
+        <p><i class="fas fa-exclamation-circle"></i> ${text}.<p>    
     `
     main.appendChild(msg);
 }
 
-
-// const searchURL = BASE_URL + '/search/movie?'+API_KEY;
-
-// const main = document.getElementById('main');
-// const form =  document.getElementById('form');
-// const search = document.getElementById('search');
 // const tagsEl = document.getElementById('tags');
 
 // const prev = document.getElementById('prev')
