@@ -9,6 +9,7 @@
     box-sizing: border-box;
 }
 
+/* Navbar */
 .navbar {
     padding: 1rem;
 }
@@ -23,6 +24,7 @@
     cursor: pointer;
 }
 
+/* Movie banner */
 #banner {
     display: flex;
     position: relative;
@@ -33,6 +35,19 @@
     background-position: center;
 }
 
+.mb-info {
+    position: absolute;
+    z-index: 99;
+    width: 40%;
+    bottom: 30%;
+    left: 10%;
+    color: white;
+    background-color: #242423;
+    filter: opacity(80%);
+    padding: 1rem;
+}
+
+/* Subnavbar */
 #filters {
     background-color: var(--bg-color);
     padding: 1rem;
@@ -57,18 +72,19 @@
     align-items: center;
 }
 
-.mb-info {
-    position: absolute;
-    z-index: 99;
-    width: 40%;
-    bottom: 30%;
-    left: 10%;
-    color: white;
-    background-color: #242423;
-    filter: opacity(80%);
-    padding: 1rem;
+.btn-warning {
+    color: #000000;
 }
 
+.btn-warning:active, .btn-warning:focus, .btn-danger:active, .btn-danger:focus {
+    background-color: #f3722c;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Movies Catalog */
 #main-content {
     display: flex;
     flex-wrap: wrap;
@@ -80,6 +96,7 @@ img {
     width: 100%;
 }
 
+/* Movie card */
 .movie {
     width: 18rem;
     position: relative;
@@ -105,7 +122,7 @@ span.g {
 }
 
 span.o {
-    color: #ff5400;
+    color: #f3722c;
 }
 
 span.r {
@@ -154,6 +171,42 @@ span.r {
     padding: 0.5rem;
 }
 
+/* Footer */
+footer {
+    padding: 1em;
+    background-color: var(--bg-color);
+    color: #e9ecef;
+    font-size: 1.2rem;
+}
+
+#contact {
+    margin-top: 50px;
+}
+
+#fbrand {
+    text-align: center;
+    border-radius: 10px;
+    padding: .5em 1em;
+    width: 50%;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#fbrand i {
+    color: white;
+}
+
+footer i {
+    margin-right: 10px;
+    color: white;
+}
+
+footer h3 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+/* Screen Size Responsiveness */
 @media (max-width: 750px) {
     .mb-info {
         width: 80%;
