@@ -9,7 +9,8 @@ window.onload = function() {
         { label: "week7 notes/exercises", url: "week07/index.html"},
         { label: "week8 notes/exercises", url: "week08/index.html"},
         { label: "week9 notes/exercises", url: "week09/index.html"},
-        { label: "week10 notes/exercises", url: "week10/index.html"}
+        { label: "week10 notes/exercises", url: "week10/index.html"},
+        { label: "Final Project: Movies App", url: "movie-app/index.html"}
     ]
 
     addLink(links);
