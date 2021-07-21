@@ -1,0 +1,157 @@
+:root {
+   --secondary-color: #ff0054;
+    --bg-color: #242423;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    padding: 1rem;
+}
+
+.navbar, #main-content {
+    background-color: var(--bg-color);
+}
+
+.navbar .navbar-brand {
+    color: var(--secondary-color);
+}
+
+#banner {
+    display: flex;
+    position: relative;
+    height: 50vh;
+    background: url(https://images.unsplash.com/photo-1540266908617-307d8bdaacbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#search-movie {
+    display: flex;
+}
+
+.mb-info {
+    position: absolute;
+    z-index: 99;
+    width: 40%;
+    bottom: 30%;
+    left: 10%;
+    color: white;
+    background-color: #242423;
+    filter: opacity(80%);
+    padding: 1rem;
+}
+
+#main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+.movie {
+    width: 18rem;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.m-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.m-rate {
+    font-weight: bold;
+}
+
+span.g {
+    color: #8ac926;
+}
+
+span.o {
+    color: #ff5400;    
+}
+
+span.r {
+    color: #ff0054;    
+}
+
+.fa-star {
+    color: #ff9f1c;
+}
+
+.m-desc {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e9ecef;
+    padding: 1rem;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: transform 0.4s ease-in;
+}
+
+.movie:hover .m-desc{
+    transform: translateY(0);
+}
+
+
+.m-desc button {
+    display: flex;
+    margin: 0 auto;
+}
+
+.m-error {
+    height: 50vh;
+    color: white;
+    padding: 5rem;
+}
+
+.fa-exclamation-circle {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 750px) {
+    .mb-info {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .mb-info {
+        width: 90%;
+        bottom: 20%;
+        left: 5%;
+    }
+
+    .navbar-brand {
+        width: 100%;
+        text-align: center;
+    }
+
+    #search-movie {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 95%;
+    }
+}
+
+
+
+
